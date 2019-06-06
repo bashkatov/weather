@@ -6,7 +6,7 @@
  * Time: 13:15
  */
 
-namespace bashkatov\Weather;
+namespace bashkatov\weather;
 
 class Weather
 {

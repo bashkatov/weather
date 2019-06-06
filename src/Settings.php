@@ -5,7 +5,7 @@
  * Date: 19.6.6
  * Time: 14:36
  */
-namespace bashkatov\Weather;
+namespace bashkatov\weather;
 
 class Settings
 {

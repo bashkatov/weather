@@ -6,7 +6,7 @@
  * Time: 14:51
  */
 
-namespace bashkatov\Weather;
+namespace bashkatov\weather;
 
 use GuzzleHttp\Client as Guzzle;
 
