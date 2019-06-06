@@ -8,6 +8,7 @@
 
 namespace bashkatov\weather\Downloads;
 
+use Apfelbox\FileDownload\FileDownload;
 use bashkatov\weather\Interfaces\Downloadable;
 use SimpleXMLElement;
 
@@ -33,9 +34,11 @@ class DownloadXml implements Downloadable
             'ozone'               => $forecast->ozone,
         ];
 
-        $xml  = new SimpleXMLElement('<weather/>');
+        $xml = new SimpleXMLElement('<weather/>');
         $this->to_xml($xml, $data);
-        return $xml->asXML();
+
+        $fileDownload = FileDownload::createFromString($xml->asXML());
+        $fileDownload->sendDownload("weather.xml");
     }
 
     private function to_xml(SimpleXMLElement $object, array $data)
@@ -46,7 +49,7 @@ class DownloadXml implements Downloadable
                 $this->to_xml($new_object, $value);
             } else {
                 // if the key is an integer, it needs text with it to actually work.
-                if ($key == (int)$key) {
+                if ($key === (int)$key) {
                     $key = "key_$key";
                 }
 

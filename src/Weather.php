@@ -82,11 +82,8 @@ class Weather
 
             $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
 
-            $content = (new $className())
-                ->download($this->forecast()->currently);
-
-            $fileDownload = FileDownload::createFromString($content);
-            $fileDownload->sendDownload("weather." . strtolower($this->settings->getFileType()));
+            $object = new $className();
+            $object->download($this->forecast()->currently);
 
         } catch (\Exception $e) {
 
