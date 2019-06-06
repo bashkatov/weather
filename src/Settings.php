@@ -82,6 +82,6 @@ class Settings
 
     public function getFileType()
     {
-        return $this->getFileType();
+        return $this->file_type;
     }
 }
