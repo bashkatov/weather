@@ -8,8 +8,6 @@
 
 namespace bashkatov\weather;
 
-use bashkatov\weather\Downloads\DownloadXml;
-
 class Weather
 {
     protected $types = [];
@@ -80,7 +78,7 @@ class Weather
 
         try {
 
-            $className = 'Download' . ucfirst($this->settings->getFileType());
+            $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
 
             $file = new $className();
             $file->download($this->forecast());
