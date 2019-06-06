@@ -8,7 +8,7 @@
 
 namespace bashkatov\weather;
 
-use GuzzleHttp\Client;
+use Apfelbox\FileDownload\FileDownload;
 
 class Weather
 {
@@ -82,10 +82,11 @@ class Weather
 
             $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
 
-            $file = (new $className())
+            $content = (new $className())
                 ->download($this->forecast()->currently);
 
-            echo $file;
+            $fileDownload = FileDownload::createFromString($content);
+            $fileDownload->sendDownload("weather." . strtolower($this->settings->getFileType()));
 
         } catch (\Exception $e) {
 

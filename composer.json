@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "apfelbox/php-file-download": "^2.1"
     },
     "autoload": {
         "psr-4": {
