@@ -82,8 +82,10 @@ class Weather
 
             $className = 'Download' . ucfirst($this->settings->getFileType());
 
-            $file = new $className();
-            $file->download($this->forecast());
+            var_dump($className);
+
+//            $file = new $className();
+//            $file->download($this->forecast());
 
         } catch (\Exception $e) {
 
