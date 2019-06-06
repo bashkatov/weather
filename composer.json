@@ -1,0 +1,11 @@
+{
+    "name": "bashkatov/weather",
+    "description": "Get weather info from DarkSky API",
+    "authors": [
+        {
+            "name": "Pavel",
+            "email": "pavel.a.bashkatov@yandex.ru"
+        }
+    ],
+    "require": {}
+}
