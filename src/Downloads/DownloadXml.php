@@ -35,7 +35,7 @@ class DownloadXml implements Downloadable
 
         $xml  = new SimpleXMLElement('<weather/>');
         $this->to_xml($xml, $data);
-        print $xml->asXML();
+        return $xml->asXML();
     }
 
     private function to_xml(SimpleXMLElement $object, array $data)
