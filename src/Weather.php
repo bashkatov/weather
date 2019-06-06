@@ -8,6 +8,8 @@
 
 namespace bashkatov\weather;
 
+use bashkatov\weather\Downloads\DownloadXml;
+
 class Weather
 {
     protected $types = [];
@@ -22,12 +24,10 @@ class Weather
      */
     protected $api;
 
-    protected $si;
-
     public function __construct($apiKey, Settings $settings = null, Api $api = null)
     {
         $this->settings = !is_null($settings) ? $settings : new Settings;
-        $this->api = !is_null($api) ? $api : new Api;
+        $this->api      = !is_null($api) ? $api : new Api;
         $this->settings->setApiKey($apiKey);
     }
 
@@ -58,6 +58,13 @@ class Weather
         return $this;
     }
 
+    public function type($file_type)
+    {
+        $this->settings->setFileType($file_type);
+
+        return $this;
+    }
+
     private function weather()
     {
         return $this->api->weatherRequest($this->settings);
@@ -66,5 +73,22 @@ class Weather
     public function forecast()
     {
         return json_decode($this->weather()->getBody());
+    }
+
+    public function download()
+    {
+
+        try {
+
+            $className = 'Download' . ucfirst($this->settings->getFileType());
+
+            $file = new $className();
+            $file->download($this->forecast());
+
+        } catch (\Exception $e) {
+
+            echo $e->getMessage();
+
+        }
     }
 }

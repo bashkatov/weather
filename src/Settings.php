@@ -5,6 +5,7 @@
  * Date: 19.6.6
  * Time: 14:36
  */
+
 namespace bashkatov\weather;
 
 class Settings
@@ -31,6 +32,8 @@ class Settings
     protected $longitude;
 
     protected $units;
+
+    protected $file_type;
 
     public function setApiKey($apiKey)
     {
@@ -70,5 +73,15 @@ class Settings
     public function getUnits()
     {
         return $this->units;
+    }
+
+    public function setFileType($file_type)
+    {
+        $this->file_type = $file_type;
+    }
+
+    public function getFileType()
+    {
+        return $this->getFileType();
     }
 }
