@@ -30,6 +30,8 @@ class Settings
      */
     protected $longitude;
 
+    protected $units;
+
     public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
@@ -58,5 +60,15 @@ class Settings
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    public function setUnits($units)
+    {
+        $this->units = $units;
+    }
+
+    public function getUnits()
+    {
+        return $this->units;
     }
 }

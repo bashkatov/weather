@@ -27,6 +27,6 @@ class Api
     public function weatherRequest(Settings $settings)
     {
         $url = $this->apiUrl . "{$settings->getApiKey()}/{$settings->getLatitude()},{$settings->getLongitude()}";
-        return $this->client->request('GET', $url);
+        return $this->client->request('GET', $url, ['query' => ['units' => $settings->getUnits()]]);
     }
 }

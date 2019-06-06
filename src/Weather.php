@@ -22,6 +22,8 @@ class Weather
      */
     protected $api;
 
+    protected $si;
+
     public function __construct($apiKey, Settings $settings = null, Api $api = null)
     {
         $this->settings = !is_null($settings) ? $settings : new Settings;
@@ -47,6 +49,11 @@ class Weather
         $this->settings->setLongitude($longitude);
 
         return $this;
+    }
+
+    public function units($units)
+    {
+        $this->settings->setUnits($units);
     }
 
     private function weather()
