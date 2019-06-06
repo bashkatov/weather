@@ -19,5 +19,9 @@ $forecast = (new Weather(DARK_SKY_API_KEY))
     ->units('si')
     ->type($file_type);
 
-$forecast->download();
+try {
+    $forecast->download();
+} catch(FileTypeException $e) {
+    echo $e->getMessage();
+}
 ```
