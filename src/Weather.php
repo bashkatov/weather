@@ -41,7 +41,7 @@ class Weather
      * @param float $longitude
      * @return $this
      */
-    public function setCoordinates($latitude, $longitude)
+    public function coordinates($latitude, $longitude)
     {
         $this->settings->setLatitude($latitude);
         $this->settings->setLongitude($longitude);
