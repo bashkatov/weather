@@ -49,8 +49,13 @@ class Weather
         return $this;
     }
 
-    public function weather()
+    private function weather()
     {
         return $this->api->weatherRequest($this->settings);
+    }
+
+    public function forecast()
+    {
+        return json_decode($this->weather()->getBody());
     }
 }
