@@ -31,10 +31,21 @@ class Settings
      */
     protected $longitude;
 
+    /**
+     * @var string
+     */
     protected $units;
 
+    /**
+     * @var string
+     */
     protected $file_type;
 
+    /**
+     * Set DarkSky Api Key
+     *
+     * @param $apiKey
+     */
     public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
@@ -45,6 +56,11 @@ class Settings
         return $this->apiKey;
     }
 
+    /**
+     * Set latitude
+     *
+     * @param $latitude
+     */
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
@@ -55,6 +71,11 @@ class Settings
         return $this->latitude;
     }
 
+    /**
+     * Set longitude
+     *
+     * @param $longitude
+     */
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
@@ -65,6 +86,11 @@ class Settings
         return $this->longitude;
     }
 
+    /**
+     * Set units type
+     *
+     * @param $units
+     */
     public function setUnits($units)
     {
         $this->units = $units;
@@ -75,6 +101,11 @@ class Settings
         return $this->units;
     }
 
+    /**
+     * Set download file type: 'json' or 'xml'
+     *
+     * @param $file_type
+     */
     public function setFileType($file_type)
     {
         $this->file_type = $file_type;
