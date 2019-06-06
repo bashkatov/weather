@@ -8,6 +8,8 @@
 
 namespace bashkatov\weather;
 
+use GuzzleHttp\Client;
+
 class Weather
 {
     protected $types = [];
@@ -80,8 +82,10 @@ class Weather
 
             $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
 
-            $file = new $className();
-            $file->download($this->forecast()->currently);
+            $file = (new $className())
+                ->download($this->forecast()->currently);
+
+            echo $file;
 
         } catch (\Exception $e) {
 

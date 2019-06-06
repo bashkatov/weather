@@ -33,7 +33,7 @@ class DownloadXml implements Downloadable
             'ozone'               => $forecast->ozone,
         ];
 
-        $xml  = new SimpleXMLElement('<rootTag/>');
+        $xml  = new SimpleXMLElement('<weather/>');
         $this->to_xml($xml, $data);
         print $xml->asXML();
     }
