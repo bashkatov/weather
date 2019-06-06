@@ -54,6 +54,8 @@ class Weather
     public function units($units)
     {
         $this->settings->setUnits($units);
+
+        return $this;
     }
 
     private function weather()
