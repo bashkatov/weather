@@ -8,7 +8,7 @@
 
 namespace bashkatov\weather;
 
-use Apfelbox\FileDownload\FileDownload;
+use bashkatov\weather\Exceptions\FileTypeException;
 
 class Weather
 {
@@ -75,20 +75,18 @@ class Weather
         return json_decode($this->weather()->getBody());
     }
 
+    /**
+     * @throws FileTypeException
+     */
     public function download()
     {
+        $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
 
-        try {
-
-            $className = 'bashkatov\\weather\\Downloads\\Download' . ucfirst($this->settings->getFileType());
-
-            $object = new $className();
-            $object->download($this->forecast()->currently);
-
-        } catch (\Exception $e) {
-
-            echo $e->getMessage();
-
+        if (!class_exists($className)) {
+            throw new FileTypeException("Wrong file type. Please use 'json' or 'xml'.");
         }
+
+        $object = new $className();
+        $object->download($this->forecast()->currently);
     }
 }
