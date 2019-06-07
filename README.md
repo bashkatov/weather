@@ -2,6 +2,17 @@
 Get weather info from DarkSky API
 
 ## Installation
+Add this repository to your composer.json: 
+
+```json
+"repositories": [
+    {
+        "type": "git",
+        "url": "https://github.com/bashkatov/weather.git"
+    }
+]
+```
+
 ```bash
 composer require bashkatov/weather
 ```
